@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethereal Studio - Complete Rebrand | Alexandra Chen</title>
+    <meta name="description"
+        content="A comprehensive rebranding project for Ethereal Studio - a premium creative agency transformation.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Case Study Specific Styles -->
+    <style>
+        /* Case Study Hero */
+        .case-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a0a2e 0%, #4a1c6b 50%, #7b2d8e 100%);
+        }
+
+        .case-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .case-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        .case-back {
+            position: absolute;
+            top: 100px;
+            left: 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .case-back:hover {
+            color: #fff;
+            transform: translateX(-4px);
+        }
+
+        .case-category {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 24px;
+        }
+
+        .case-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(48px, 8vw, 80px);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .case-subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto 48px;
+            line-height: 1.7;
+        }
+
+        .case-meta {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 8px;
+        }
+
+        .meta-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Case Study Sections */
+        .case-section {
+            padding: 100px 0;
+        }
+
+        .case-section.dark {
+            background: var(--color-bg-alt);
+        }
+
+        .case-section-header {
+            max-width: 700px;
+            margin-bottom: 60px;
+        }
+
+        .case-section-header.center {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .case-section-tag {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+        }
+
+        .case-section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+            color: var(--color-text);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .case-section-desc {
+            font-size: 18px;
+            color: var(--color-text-muted);
+            line-height: 1.8;
+        }
+
+        /* Challenge & Solution Grid */
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .challenge-card {
+            padding: 40px;
+            background: var(--color-bg-card);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .challenge-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .challenge-card h3 svg {
+            color: var(--color-accent);
+        }
+
+        .challenge-card p {
+            color: var(--color-text-muted);
+            line-height: 1.8;
+        }
+
+        .challenge-card ul {
+            margin-top: 16px;
+        }
+
+        .challenge-card li {
+            position: relative;
+            padding-left: 24px;
+            color: var(--color-text-muted);
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .challenge-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            border-radius: 50%;
+        }
+
+        /* Logo Showcase */
+        .logo-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .logo-card {
+            padding: 80px 60px;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .logo-card.old {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-card.new {
+            background: linear-gradient(135deg, #1a0a2e 0%, #4a1c6b 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 60px rgba(74, 28, 107, 0.3);
+        }
+
+        .logo-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 32px;
+        }
+
+        .logo-visual {
+            margin-bottom: 32px;
+        }
+
+        .logo-old-text {
+            font-family: 'Times New Roman', serif;
+            font-size: 36px;
+            color: #888;
+            letter-spacing: 4px;
+        }
+
+        .logo-new-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d4af37 0%, #f0c14b 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .logo-new-symbol {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            position: relative;
+        }
+
+        .logo-new-symbol::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 3px solid #d4af37;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .logo-new-symbol::after {
+            content: 'E';
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #d4af37;
+        }
+
+        /* Color Palette */
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+        }
+
+        .color-swatch {
+            text-align: center;
+        }
+
+        .swatch-color {
+            aspect-ratio: 1;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .swatch-color.primary {
+            background: linear-gradient(135deg, #1a0a2e 0%, #2d1245 100%);
+        }
+
+        .swatch-color.secondary {
+            background: linear-gradient(135deg, #4a1c6b 0%, #6b2d8e 100%);
+        }
+
+        .swatch-color.accent {
+            background: linear-gradient(135deg, #d4af37 0%, #f0c14b 100%);
+        }
+
+        .swatch-color.light {
+            background: linear-gradient(135deg, #f8f6f4 0%, #ebe7e3 100%);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .swatch-color.dark {
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+        }
+
+        .swatch-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 4px;
+        }
+
+        .swatch-hex {
+            font-size: 13px;
+            color: var(--color-text-muted);
+            font-family: monospace;
+        }
+
+        /* Typography Showcase */
+        .typography-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .type-card {
+            padding: 48px;
+            background: var(--color-bg-card);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .type-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 24px;
+        }
+
+        .type-sample {
+            font-size: 48px;
+            color: var(--color-text);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .type-sample.heading {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        .type-sample.body {
+            font-family: 'Inter', sans-serif;
+            font-size: 32px;
+            font-weight: 400;
+        }
+
+        .type-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 8px;
+        }
+
+        .type-weights {
+            font-size: 14px;
+            color: var(--color-text-muted);
+        }
+
+        /* Brand Applications */
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .application-card {
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            position: relative;
+            background: linear-gradient(135deg, #1a0a2e 0%, #4a1c6b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .application-card.full {
+            grid-column: span 2;
+            aspect-ratio: 21/9;
+        }
+
+        .app-content {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .app-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 16px;
+        }
+
+        /* Business Card Mock */
+        .business-card-mock {
+            width: 280px;
+            height: 160px;
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: rotate(-3deg);
+        }
+
+        .bc-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #d4af37;
+        }
+
+        .bc-info {
+            text-align: right;
+        }
+
+        .bc-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .bc-role {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Letterhead Mock */
+        .letterhead-mock {
+            width: 200px;
+            height: 280px;
+            background: #f8f6f4;
+            border-radius: 4px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .lh-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #d4af37;
+        }
+
+        .lh-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a0a2e;
+        }
+
+        .lh-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .lh-line {
+            height: 6px;
+            background: #e5e5e5;
+            border-radius: 3px;
+        }
+
+        .lh-line:nth-child(1) {
+            width: 100%;
+        }
+
+        .lh-line:nth-child(2) {
+            width: 90%;
+        }
+
+        .lh-line:nth-child(3) {
+            width: 95%;
+        }
+
+        .lh-line:nth-child(4) {
+            width: 60%;
+        }
+
+        /* Website Mock */
+        .website-mock {
+            width: 100%;
+            max-width: 600px;
+            background: #0d0d0d;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .wm-browser {
+            height: 32px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            gap: 8px;
+        }
+
+        .wm-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .wm-dot.red {
+            background: #ff5f57;
+        }
+
+        .wm-dot.yellow {
+            background: #febc2e;
+        }
+
+        .wm-dot.green {
+            background: #28c840;
+        }
+
+        .wm-content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .wm-nav {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .wm-nav span {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .wm-hero-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .wm-hero-sub {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 24px;
+        }
+
+        .wm-cta {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #d4af37;
+            color: #0d0d0d;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Results Section */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .result-card {
+            padding: 40px 32px;
+            background: var(--color-bg-card);
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .result-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #d4af37 0%, #f0c14b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .result-label {
+            font-size: 14px;
+            color: var(--color-text-muted);
+            line-height: 1.5;
+        }
+
+        /* Testimonial */
+        .case-testimonial {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 60px;
+            background: var(--color-bg-card);
+            border-radius: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .case-testimonial-text {
+            font-size: 24px;
+            line-height: 1.7;
+            color: var(--color-text);
+            font-style: italic;
+            margin-bottom: 32px;
+        }
+
+        .case-testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .cta-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4a1c6b 0%, #7b2d8e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .cta-info h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .cta-info p {
+            font-size: 14px;
+            color: var(--color-text-muted);
+        }
+
+        /* Next Project */
+        .next-project {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a0a2e 0%, #4a1c6b 100%);
+            text-align: center;
+        }
+
+        .next-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 16px;
+        }
+
+        .next-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 32px;
+        }
+
+        .next-title a {
+            transition: color 0.3s ease;
+        }
+
+        .next-title a:hover {
+            color: #d4af37;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+
+            .challenge-grid,
+            .logo-showcase,
+            .typography-showcase,
+            .applications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .application-card.full {
+                grid-column: span 1;
+                aspect-ratio: 16/9;
+            }
+
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .color-palette {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .case-meta {
+                gap: 32px;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .color-palette {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .case-testimonial {
+                padding: 32px;
+            }
+
+            .case-testimonial-text {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header scrolled">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">AC</span>
+                <span class="logo-dot"></span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#portfolio" class="nav-link">Work</a></li>
+                <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Case Study Hero -->
+    <section class="case-hero">
+        <a href="index.html#portfolio" class="case-back container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Portfolio
+        </a>
+
+        <div class="case-hero-content">
+            <span class="case-category">Complete Rebrand</span>
+            <h1 class="case-title">Ethereal Studio</h1>
+            <p class="case-subtitle">
+                A comprehensive brand transformation for a premium creative agency,
+                evolving from outdated corporate to sophisticated modern luxury.
+            </p>
+
+            <div class="case-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Client</div>
+                    <div class="meta-value">Ethereal Studio</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Industry</div>
+                    <div class="meta-value">Creative Agency</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Timeline</div>
+                    <div class="meta-value">8 Weeks</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Year</div>
+                    <div class="meta-value">2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge & Solution -->
+    <section class="case-section">
+        <div class="container">
+            <div class="case-section-header center">
+                <span class="case-section-tag">The Brief</span>
+                <h2 class="case-section-title">Understanding the Challenge</h2>
+                <p class="case-section-desc">
+                    Ethereal Studio approached us with a clear mission: transform their dated brand
+                    into a sophisticated identity that reflects their evolution into a premium creative agency.
+                </p>
+            </div>
+
+            <div class="challenge-grid">
+                <div class="challenge-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        The Challenge
+                    </h3>
+                    <p>The existing brand identity was:</p>
+                    <ul>
+                        <li>Visually outdated with a generic corporate feel</li>
+                        <li>Inconsistent across different touchpoints</li>
+                        <li>Not reflecting their premium positioning</li>
+                        <li>Failing to attract high-value clients</li>
+                    </ul>
+                </div>
+
+                <div class="challenge-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                            </polygon>
+                        </svg>
+                        The Solution
+                    </h3>
+                    <p>We delivered a complete brand transformation:</p>
+                    <ul>
+                        <li>Bold new visual identity with luxury positioning</li>
+                        <li>Cohesive brand system across all touchpoints</li>
+                        <li>Premium color palette with deep purples and gold</li>
+                        <li>Modern typography that commands attention</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Evolution -->
+    <section class="case-section dark">
+        <div class="container">
+            <div class="case-section-header center">
+                <span class="case-section-tag">Logo Design</span>
+                <h2 class="case-section-title">A Bold Transformation</h2>
+                <p class="case-section-desc">
+                    The logomark evolved from a forgettable wordmark to a distinctive symbol
+                    that embodies creativity, elegance, and forward-thinking design.
+                </p>
+            </div>
+
+            <div class="logo-showcase">
+                <div class="logo-card old">
+                    <span class="logo-label">Before</span>
+                    <div class="logo-visual">
+                        <span class="logo-old-text">ETHEREAL</span>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.4); font-size: 14px;">
+                        Generic serif typography lacking personality
+                    </p>
+                </div>
+
+                <div class="logo-card new">
+                    <span class="logo-label">After</span>
+                    <div class="logo-visual">
+                        <div class="logo-new-symbol"></div>
+                        <span class="logo-new-text">ETHEREAL</span>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.5); font-size: 14px;">
+                        Modern symbol with refined typography
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Color Palette -->
+    <section class="case-section">
+        <div class="container">
+            <div class="case-section-header center">
+                <span class="case-section-tag">Color System</span>
+                <h2 class="case-section-title">A Premium Palette</h2>
+                <p class="case-section-desc">
+                    Deep purples convey creativity and sophistication, while gold accents
+                    add a touch of luxury that sets Ethereal apart from competitors.
+                </p>
+            </div>
+
+            <div class="color-palette">
+                <div class="color-swatch">
+                    <div class="swatch-color primary"></div>
+                    <div class="swatch-name">Deep Plum</div>
+                    <div class="swatch-hex">#1A0A2E</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-color secondary"></div>
+                    <div class="swatch-name">Royal Purple</div>
+                    <div class="swatch-hex">#4A1C6B</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-color accent"></div>
+                    <div class="swatch-name">Ethereal Gold</div>
+                    <div class="swatch-hex">#D4AF37</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-color light"></div>
+                    <div class="swatch-name">Warm White</div>
+                    <div class="swatch-hex">#F8F6F4</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-color dark"></div>
+                    <div class="swatch-name">Rich Black</div>
+                    <div class="swatch-hex">#0D0D0D</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Typography -->
+    <section class="case-section dark">
+        <div class="container">
+            <div class="case-section-header center">
+                <span class="case-section-tag">Typography</span>
+                <h2 class="case-section-title">Type That Commands</h2>
+                <p class="case-section-desc">
+                    A carefully selected type pairing that balances boldness with readability,
+                    creating a distinctive voice for the brand.
+                </p>
+            </div>
+
+            <div class="typography-showcase">
+                <div class="type-card">
+                    <span class="type-label">Primary Typeface</span>
+                    <div class="type-sample heading">Aa</div>
+                    <div class="type-name">Outfit</div>
+                    <div class="type-weights">Light • Regular • Medium • SemiBold • Bold • ExtraBold</div>
+                </div>
+
+                <div class="type-card">
+                    <span class="type-label">Secondary Typeface</span>
+                    <div class="type-sample body">Aa</div>
+                    <div class="type-name">Inter</div>
+                    <div class="type-weights">Light • Regular • Medium • SemiBold</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Applications -->
+    <section class="case-section">
+        <div class="container">
+            <div class="case-section-header center">
+                <span class="case-section-tag">Applications</span>
+                <h2 class="case-section-title">Bringing the Brand to Life</h2>
+                <p class="case-section-desc">
+                    The new identity system flows seamlessly across all touchpoints,
+                    creating a cohesive and memorable brand experience.
+                </p>
+            </div>
+
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="app-content">
+                        <span class="app-label">Business Card</span>
+                        <div class="business-card-mock">
+                            <div class="bc-logo">ETHEREAL</div>
+                            <div class="bc-info">
+                                <div class="bc-name">Sarah Mitchell</div>
+                                <div class="bc-role">Creative Director</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-card">
+                    <div class="app-content">
+                        <span class="app-label">Letterhead</span>
+                        <div class="letterhead-mock">
+                            <div class="lh-header">
+                                <span class="lh-logo">ETHEREAL</span>
+                            </div>
+                            <div class="lh-lines">
+                                <div class="lh-line"></div>
+                                <div class="lh-line"></div>
+                                <div class="lh-line"></div>
+                                <div class="lh-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-card full">
+                    <div class="app-content" style="width: 100%;">
+                        <span class="app-label">Website Design</span>
+                        <div class="website-mock">
+                            <div class="wm-browser">
+                                <div class="wm-dot red"></div>
+                                <div class="wm-dot yellow"></div>
+                                <div class="wm-dot green"></div>
+                            </div>
+                            <div class="wm-content">
+                                <div class="wm-nav">
+                                    <span>Work</span>
+                                    <span>About</span>
+                                    <span>Services</span>
+                                    <span>Contact</span>
+                                </div>
+                                <div class="wm-hero-text">We Create Digital<br>Experiences</div>
+                                <div class="wm-hero-sub">Award-winning creative studio</div>
+                                <span class="wm-cta">View Our Work</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="case-section dark">
+        <div class="container">
+            <div class="case-section-header center">
+                <span class="case-section-tag">Impact</span>
+                <h2 class="case-section-title">Measurable Results</h2>
+                <p class="case-section-desc">
+                    The rebrand delivered significant business impact within the first quarter.
+                </p>
+            </div>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">156%</div>
+                    <div class="result-label">Increase in<br>Website Traffic</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">3x</div>
+                    <div class="result-label">More Premium<br>Client Inquiries</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">45%</div>
+                    <div class="result-label">Higher Average<br>Project Value</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">12</div>
+                    <div class="result-label">Industry Awards<br>Nominated</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonial -->
+    <section class="case-section">
+        <div class="container">
+            <div class="case-testimonial">
+                <p class="case-testimonial-text">
+                    "Alexandra didn't just give us a new logo—she gave us a new identity.
+                    The rebrand has completely transformed how clients perceive us. We're
+                    now attracting the premium projects we've always dreamed of."
+                </p>
+                <div class="case-testimonial-author">
+                    <div class="cta-avatar">SM</div>
+                    <div class="cta-info">
+                        <h4>Sarah Mitchell</h4>
+                        <p>Founder & Creative Director, Ethereal Studio</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Project -->
+    <section class="next-project">
+        <div class="container">
+            <p class="next-label">Next Project</p>
+            <h2 class="next-title">
+                <a href="index.html#portfolio">Explore More Work →</a>
+            </h2>
+            <a href="index.html#contact" class="btn btn-primary">Start a Project</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-text">AC</span>
+                        <span class="logo-dot"></span>
+                    </a>
+                    <p>Creating visual experiences that captivate and convert.</p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#portfolio">Work</a>
+                    <a href="index.html#testimonials">Testimonials</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Alexandra Chen. All rights reserved.</p>
+                <p>Designed with <span class="heart">♥</span> in San Francisco</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        // Theme Toggle
+        const toggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+        }
+
+        toggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+
+</html>
