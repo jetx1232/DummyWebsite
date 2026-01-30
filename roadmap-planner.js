@@ -10,7 +10,8 @@
 const SUPABASE_URL = 'https://hrisxnfihqhipcwtzqcm.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhyaXN4bmZpaHFoaXBjd3R6cWNtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk3OTM4NzQsImV4cCI6MjA4NTM2OTg3NH0.ouIpF-BXOIFaEvSRjyETgCg-l2OGjosiegB8FeQF9N8';
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// Supabase client will be initialized in init()
+let supabase = null;
 
 // ============================================
 // Data Management
@@ -133,6 +134,15 @@ let elements = {};
 async function fetchInitiatives() {
     isLoading = true;
     showLoadingState();
+
+    // If Supabase is not available, use local data
+    if (!supabase) {
+        console.log('Supabase not available, loading local data');
+        loadFromLocalStorage();
+        isLoading = false;
+        hideLoadingState();
+        return;
+    }
 
     try {
         const { data, error } = await supabase
@@ -392,10 +402,28 @@ async function init() {
         shortcutsModal: document.getElementById('shortcutsModal')
     };
 
+    // Initialize Supabase client
+    try {
+        if (window.supabase && window.supabase.createClient) {
+            supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            console.log('Supabase client initialized');
+        } else {
+            console.warn('Supabase library not loaded, using offline mode');
+            supabase = null;
+        }
+    } catch (error) {
+        console.error('Error initializing Supabase:', error);
+        supabase = null;
+    }
+
     setupEventListeners();
     updateQuarterDisplay();
     await fetchInitiatives();
-    setupRealtimeSubscription();
+
+    // Only setup realtime if Supabase is available
+    if (supabase) {
+        setupRealtimeSubscription();
+    }
 }
 
 // ============================================
