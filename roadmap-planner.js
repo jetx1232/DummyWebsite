@@ -291,14 +291,23 @@ function mapToDb(initiative) {
     };
 }
 
-// Fallback to localStorage
+// Fallback to localStorage or sample data
 function loadFromLocalStorage() {
     const stored = localStorage.getItem('roadmap_initiatives_v2');
     if (stored) {
         initiatives = JSON.parse(stored);
-        renderInitiatives();
-        updateStats();
+    } else {
+        // No stored data - use sample data locally with generated IDs
+        initiatives = sampleInitiatives.map((item, index) => ({
+            ...item,
+            id: `local-${Date.now()}-${index}`,
+            startMonth: item.start_month,
+            endMonth: item.end_month
+        }));
+        showToast('Using sample data (offline mode)', 'info');
     }
+    renderInitiatives();
+    updateStats();
 }
 
 function showLoadingState() {
