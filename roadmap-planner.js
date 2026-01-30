@@ -121,35 +121,10 @@ const sampleInitiatives = [
 ];
 
 // ============================================
-// DOM Elements
+// DOM Elements (populated in init)
 // ============================================
 
-const elements = {
-    yearSelect: document.getElementById('yearSelect'),
-    quarterBtns: document.querySelectorAll('.quarter-btn'),
-    addInitiativeBtn: document.getElementById('addInitiativeBtn'),
-    searchInput: document.getElementById('searchInput'),
-    teamFilters: document.getElementById('teamFilters'),
-    priorityFilters: document.getElementById('priorityFilters'),
-    statusFilters: document.getElementById('statusFilters'),
-    totalInitiatives: document.getElementById('totalInitiatives'),
-    highPriorityCount: document.getElementById('highPriorityCount'),
-    completedCount: document.getElementById('completedCount'),
-    progressPercent: document.getElementById('progressPercent'),
-    timelineGrid: document.getElementById('timelineGrid'),
-    modalOverlay: document.getElementById('modalOverlay'),
-    modalTitle: document.getElementById('modalTitle'),
-    modalClose: document.getElementById('modalClose'),
-    initiativeForm: document.getElementById('initiativeForm'),
-    cancelBtn: document.getElementById('cancelBtn'),
-    month1: document.getElementById('month1'),
-    month2: document.getElementById('month2'),
-    month3: document.getElementById('month3'),
-    progressSlider: document.getElementById('progress'),
-    progressValue: document.getElementById('progressValue'),
-    toastContainer: document.getElementById('toastContainer'),
-    shortcutsModal: document.getElementById('shortcutsModal')
-};
+let elements = {};
 
 // ============================================
 // Supabase Database Functions
@@ -380,6 +355,34 @@ function setupRealtimeSubscription() {
 // ============================================
 
 async function init() {
+    // Initialize DOM elements after page load
+    elements = {
+        yearSelect: document.getElementById('yearSelect'),
+        quarterBtns: document.querySelectorAll('.quarter-btn'),
+        addInitiativeBtn: document.getElementById('addInitiativeBtn'),
+        searchInput: document.getElementById('searchInput'),
+        teamFilters: document.getElementById('teamFilters'),
+        priorityFilters: document.getElementById('priorityFilters'),
+        statusFilters: document.getElementById('statusFilters'),
+        totalInitiatives: document.getElementById('totalInitiatives'),
+        highPriorityCount: document.getElementById('highPriorityCount'),
+        completedCount: document.getElementById('completedCount'),
+        progressPercent: document.getElementById('progressPercent'),
+        timelineGrid: document.getElementById('timelineGrid'),
+        modalOverlay: document.getElementById('modalOverlay'),
+        modalTitle: document.getElementById('modalTitle'),
+        modalClose: document.getElementById('modalClose'),
+        initiativeForm: document.getElementById('initiativeForm'),
+        cancelBtn: document.getElementById('cancelBtn'),
+        month1: document.getElementById('month1'),
+        month2: document.getElementById('month2'),
+        month3: document.getElementById('month3'),
+        progressSlider: document.getElementById('progress'),
+        progressValue: document.getElementById('progressValue'),
+        toastContainer: document.getElementById('toastContainer'),
+        shortcutsModal: document.getElementById('shortcutsModal')
+    };
+
     setupEventListeners();
     updateQuarterDisplay();
     await fetchInitiatives();
